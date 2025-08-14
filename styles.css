@@ -1,0 +1,67 @@
+.html,
+body {
+  font-family: "Times New Roman", Times, serif;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+}
+
+span {
+  margin: 0 0 40px;
+}
+
+h1 {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.textlabel {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.button-submit {
+  font-size: 15px;
+  text-transform: capitalize;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 20px 0 0;
+  opacity: 0.5;
+}
+
+.button-submit.enabled {
+  opacity: 1;
+}
+
+.input-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.registration {
+  border: 1px solid #3498db;
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 5px;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turn em Down</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <div class="main-registration">
+          <div>
+            <h1><span>Create Your Character</span></h1>
+          </div>
+          <div class="input-registration">
+            <label class="textlabel">Character Name</label>
+            <input
+              type="text"
+              class="registration"
+              id="character"
+              placeholder=""
+            />
+          </div>
+          <div>
+            <button type="submit" class="button-submit" id="submit_character">
+              Create Character
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("character");
+        const submit = document.getElementById("submit_character");
+
+        submit.addEventListener("click", () => {
+          const character = input.value;
+          localStorage.setItem("character", character);
+        });
+      });
+
+      const input = document.querySelector("input");
+      const button = document.querySelector(".button-submit");
+
+      input.addEventListener("input", () => {
+        if (input.value.trim() !== "") {
+          button.classList.add("enabled");
+        } else {
+          button.classList.remove("enabled");
+        }
+      });
+    </script>
+  </body>
+</html>
