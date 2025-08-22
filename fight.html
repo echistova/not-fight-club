@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="script" href="fight.js" />
+    <title>Персонаж</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <!-- <div class="container header-character"> -->
+      <div class="header-title" id="header-title"></div>
+      <div class="navigation">
+        <nav>
+          <a href="index.html"
+            ><img src="./assets/png/home.png" alt="На главную"
+          /></a>
+          <a href="character.html">
+            <img
+              src="./assets/png/settings.png"
+              alt=" Изменить настройки персонажа"
+          /></a>
+        </nav>
+      </div>
+      <!-- </div> -->
+    </header>
+    <main class="main-container">
+      <div class="separator"></div>
+      <div class="fight-container">
+        <div>
+          <button type="button" class="button-submit" id="fight">В бой!</button>
+        </div>
+        <div>
+          <div class="block_fight">
+            <div>Персонаж</div>
+            <div>Селектор</div>
+            <div>Противник</div>
+          </div>
+          <div>Здесь описание боя</div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const avatarData = localStorage.getItem("Player/avatar");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const name = "Ваш персонаж: " + localStorage.getItem("Player/name");
+        if (name) {
+          document.getElementById("header-title").textContent = name;
+        }
+      });
+
+      submit.addEventListener("click", () => {
+        const block_fight = document.querySelector(".block_fight");
+        block_fight.classList.add("block_fight_visible");
+        // main_registration.style.opacity = "1";
+        // window.location.href = "character.html";
+      });
+    </script>
+  </body>
+</html>

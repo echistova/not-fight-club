@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Turn em Down</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="script" href="fight.js" />
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="container">
+        <div class="header"></div>
+      </div>
+    </header>
     <main>
       <div class="container">
-        <div class="main-registration">
+        <div class="main-registration" id="main-registration">
           <div>
             <h1><span>Create Your Character</span></h1>
           </div>
@@ -24,7 +29,7 @@
             />
           </div>
           <div>
-            <button type="submit" class="button-submit" id="submit_character">
+            <button type="button" class="button-submit" id="submit_character">
               Create Character
             </button>
           </div>
@@ -37,10 +42,36 @@
       document.addEventListener("DOMContentLoaded", () => {
         const input = document.getElementById("character");
         const submit = document.getElementById("submit_character");
+        // const main_registration = document.getElementById("main-registration");
+
+        const avatar = [
+          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
+          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
+          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
+          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
+          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
+        ];
+        const enemy = [
+          { id: 1, src: "./assets/img/сobra.jpg", alt: "Fenek" },
+          { id: 2, src: "./assets/img/viper.jpg", alt: "Berkut" },
+          { id: 3, src: "./assets/img/scorpion.jpg", alt: "Scorpion" },
+        ];
 
         submit.addEventListener("click", () => {
-          const character = input.value;
-          localStorage.setItem("character", character);
+          const player = {
+            name: "",
+            avatar: 0,
+            wins: 0,
+            loses: 0,
+          };
+          player.name = input.value;
+          player.avatar = avatar[Math.floor(Math.random() * avatar.length)];
+          localStorage.setItem("Player/name", player.name);
+          localStorage.setItem("Player/avatar", JSON.stringify(player.avatar));
+          localStorage.setItem("Player/wins", JSON.stringify(player.wins));
+          localStorage.setItem("Player/loses", JSON.stringify(player.loses));
+          // main_registration.style.opacity = "1";
+          window.location.href = "fight.html";
         });
       });
 

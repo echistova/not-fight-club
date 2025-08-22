@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="script" href="fight.js" />
+    <title>Персонаж</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="header-title" id="header-title">Ваш персонаж</div>
+      <div class="navigation">
+        <nav>
+          <a href="index.html"
+            ><img src="./assets/png/home.png" alt="На главную"
+          /></a>
+          <a href="character.html">
+            <img
+              src="./assets/png/settings.png"
+              alt=" Изменить настройки персонажа"
+          /></a>
+        </nav>
+      </div>
+    </header>
+    <main class="main-container">
+      <div class="separator"></div>
+      <div class="character-card">
+        <div class="character-name">
+          <input
+            class="character-name-input"
+            type="text"
+            id="character-name"
+            readonly
+          />
+        </div>
+        <div class="character-edit">
+          <div class="character-avatar" id="character-avatar"></div>
+          <div class="character-edit-button">
+            <img src="./assets/png/edit.png" />
+          </div>
+        </div>
+        <div class="button">
+          <button type="button" class="button-submit" id="button-edit">
+            Изменить
+          </button>
+          <button type="button" class="button-submit" id="button-submit">
+            Сохранить
+          </button>
+        </div>
+      </div>
+    </main>
+    <script>
+      const avatarData = localStorage.getItem("Player/avatar");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const submit = document.getElementById("submit_character");
+        const edit = document.getElementById("button-edit");
+        // const change = document.getElementById("change_img");
+        const name = localStorage.getItem("Player/name");
+        const avatarData = localStorage.getItem("Player/avatar");
+
+        if (name) {
+          document.getElementById("character-name").value = name;
+        }
+
+        // const block_fight = document.querySelector(".block_fight");
+        // block_fight.classList.add("block_fight_visible");
+        if (avatarData) {
+          const avatarObject = JSON.parse(avatarData);
+          const img = document.createElement("img");
+          img.src = avatarObject.src;
+          img.alt = avatarObject.alt;
+
+          const container_avatar = document.getElementById("character-avatar");
+          container_avatar.innerHTML = "";
+          container_avatar.appendChild(img);
+        }
+      });
+
+      submit.addEventListener("click", () => {
+        const block_fight = document.querySelector(".block_fight");
+        block_fight.classList.add("block_fight_visible");
+        const avatarData = localStorage.getItem("Player/avatar");
+
+        if (avatarData) {
+          const avatarObject = JSON.parse(avatarData);
+          const img = document.createElement("img");
+          img.src = avatarObject.src;
+          img.alt = avatarObject.alt;
+
+          const container_avatar = document.getElementById("avatar");
+          container_avatar.innerHTML = "";
+          container_avatar.appendChild(img);
+        }
+      });
+
+      edit.addEventListener("click", () => {
+        if (character - name.hasAttribute("readonly")) {
+          character - name.removeAttribute("readonly");
+        }
+      });
+    </script>
+  </body>
+</html>
