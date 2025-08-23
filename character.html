@@ -176,12 +176,9 @@
             
           avatarData = avatar[newId];
           localStorage.setItem("Player/avatar", JSON.stringify(avatarData));
-          // avatarData = JSON.parse(localStorage.getItem("Player/avatar"));
           document.querySelector(".character-image").src = avatarData.src;
           document.querySelector(".character-image").alt = avatarData.alt;
-
-        // avatarData.avatar = avatar[Math.floor(Math.random() * avatar.length)];
-        characterEditImage.blur();
+          characterEditImage.blur();
        });
 
 
@@ -196,9 +193,7 @@
             
           avatarDataEnemy = enemy_avatar[newId];
           localStorage.setItem("Enemy/avatar", JSON.stringify(avatarDataEnemy));
-          // enemy.name = enemy.avatarDataEnem.alt;
           document.getElementById("character-name-enemy").value = avatarDataEnemy.alt;
-          // avatarData = JSON.parse(localStorage.getItem("Player/avatar"));
           localStorage.setItem("Enemy/name", avatarDataEnemy.alt);
           document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
           document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
