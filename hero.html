@@ -41,6 +41,15 @@
         </div>
         <div class="character-edit">
           <img class="character-image" src="" alt="character-image">
+          <img class="character-edit-image" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж"/>
+        </div>
+        <div class="button">
+          <button type="button" class="button-submit" id="button-edit">
+            Изменить
+          </button>
+          <button type="button" class="button-submit" id="button-submit">
+            Сохранить
+          </button>
         </div>
       </div>
   
@@ -58,6 +67,9 @@
         document.addEventListener("DOMContentLoaded", () => {
         const name = localStorage.getItem("Player/name");
         const characterName = document.getElementById("character-name");
+        const characterEditImage = document.querySelector('.character-edit-image');
+        const submitButton = document.getElementById("button-submit");
+        const editButton = document.getElementById("button-edit");        
 
         if (name) {
           document.getElementById("character-name").value = name;
@@ -77,6 +89,39 @@
 
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
+       
+        submitButton.addEventListener("click", () => {
+          localStorage.setItem("Player/name", document.getElementById("character-name").value);
+          characterEditImage.style.visibility = 'hidden';
+          characterName.classList.remove("character-name-editable");
+          submitButton.blur();
+        });
+
+        editButton.addEventListener("click", () => {
+          if (characterName.hasAttribute("readonly")) {
+            characterName.removeAttribute("readonly");
+          }
+          characterEditImage.style.visibility = 'visible';
+          characterName.classList.add("character-name-editable");
+          editButton.blur();
+        });
+
+        characterEditImage.addEventListener("click", () => {
+            const currentId = avatarData.id;
+            let newId;
+            if (currentId < avatar.length) {
+              newId = currentId;
+            } else {
+              newId = 0;
+            }
+            
+          avatarData = avatar[newId];
+          localStorage.setItem("Player/avatar", JSON.stringify(avatarData));
+          document.querySelector(".character-image").src = avatarData.src;
+          document.querySelector(".character-image").alt = avatarData.alt;
+          characterEditImage.blur();
+       });
+
 
       });
     </script>

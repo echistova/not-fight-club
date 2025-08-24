@@ -8,7 +8,6 @@
   </head>
   <body>
     <header class="header-container">
-      <!-- <div class="container header-character"> -->
       <div class="header-title" id="header-title"></div>
       <div class="navigation">
         <nav>
@@ -27,55 +26,65 @@
           /></a>
         </nav>
       </div>
-      <!-- </div> -->
     </header>
     <main class="main-container">
-
-      <div class="fight-container">
+      <div class="character-container">
         <div>
           <button type="button" class="button-submit" id="fight">В бой!</button>
         </div>
         <div>
-          <div class="block_fight">
-            
-          <div class="character-card">
-          <div class="character-name">
-          <input
-            class="character-name-input"
-            type="text"
-            id="character-name"
-            readonly
-          />
-        </div>
-        <div class="character-edit">
-          <img class="character-image" src="" alt="character-image">
-        </div>
-      </div>
-            <div>
-            <div>Выберите 1 зону атаки и 2 зоны защиты</div>
-            <div>
-              <div>Селектор атаки</div>
-              <div>Селектор защиты</div>
+          <div class="block_fight" id="block_fight">
+            <div class="character-card">
+              <div class="character-name">
+                <input
+                  class="character-name-input"
+                  type="text"
+                  id="character-name"
+                  readonly
+                />
+              </div>
+              <div class="character-edit">
+                <img class="character-image" src="" alt="character-image">
+              </div>
+             <div><progress class = "progress" value="0" max="150" id="progress-character"></progress></div>
             </div>
-            <div><button>Удар!</button></div>
+            <div class = "container-fight">
+              <div class="fight_message">Выберите один вид атаки и два вида защиты</div>
+              <div class="container-radio">
+                <div class="radio-group" id="radio-group">
+                  <label for="radio1"> Тыдыщ! <input type="radio" name="option" id="radio1"/></label>
+                  <label for="radio2"> Кусь<input type="radio" name="option" id="radio2"/> </label>
+                  <label for="radio3"> Хрясь<input type="radio" name="option" id="radio3"/></label>
+                  <label for="radio4"> Тьфу<input type="radio" name="option" id="radio4"/></label>
+                  <label for="radio5"> Два Куся<input type="radio" name="option" id="radio5"/></label>
+                </div>
+                <div class="checkbox-group" id="checkbox-group">
+                  <label for="checkbox1"><input type="checkbox" id="checkbox1"/> Тыдыщ!</label>
+                  <label for="checkbox2"><input type="checkbox" id="checkbox2"/> Кусь</label>
+                  <label for="checkbox3"><input type="checkbox" id="checkbox3"/> Хрясь</label>
+                  <label for="checkbox4"><input type="checkbox" id="checkbox4"/> Тьфу</label>
+                  <label for="checkbox5"><input type="checkbox" id="checkbox5"/> Два Куся</label>
+                </div>
+              </div>
+              <div><button class="button-submit" id="attack">Удар!</button></div>  
             </div>
 
             <div class="character-card">
-        <div class="character-name-enemy">
-          <input 
-            class="character-name-input"
-            type="text"
-            id="character-name-enemy"
-            readonly
-          />
-        </div>
-        <div class="character-edit">
-          <img class="character-image-enemy" src="" alt="character-image-enemy">
-        </div>
-      </div>
-
+              <div class="character-name-enemy">
+                <input 
+                  class="character-name-input"
+                  type="text"
+                  id="character-name-enemy"
+                  readonly
+                />
+              </div>
+              <div class="character-edit">
+                <img class="character-image-enemy" src="" alt="character-image-enemy">
+              </div>
+              <div><progress class = "progress" value="0" max="150" id="progress-enemy"></progress></div>
+            </div>
           </div>
-          <div>Здесь описание боя</div>
+          <div class="fight_description" id="fight_description">Здесь будет описание боя</div>
         </div>
       </div>
     </main>
@@ -99,6 +108,32 @@
         const nameEnemy = localStorage.getItem("Enemy/name");
         const characterName = document.getElementById("character-name");
         const characterNameEnemy = document.getElementById("character-name-enemy");
+
+        const player_wins = {
+            name: "",
+            id: 0,
+            attack: 0,
+            wins: 0,
+            loses: 0,
+          };
+          const enemy_wins = {
+            name: "",
+            avatar: 0,
+            wins: 0,
+            loses: 0,
+          };
+          const attack = {
+
+          }
+          const defence = {
+
+          }
+
+        document.getElementById('fight').addEventListener('click', function() {
+          this.style.display = 'none';
+          document.getElementById('block_fight').style.display = 'flex';
+          document.getElementById('fight_description').style.display = 'flex';
+        });
 
         if (name) {
           document.getElementById("character-name").value = name;
@@ -138,18 +173,14 @@
         document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
         document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
 
-      });
+      <!--Прогрессбар для персонажа-->
 
+        let progressCharacter = document.getElementById('progress-character');
+        let currentValue = 0;
 
-
-
-
-
-      submit.addEventListener("click", () => {
-        const block_fight = document.querySelector(".block_fight");
-        block_fight.classList.add("block_fight_visible");
-        // main_registration.style.opacity = "1";
-        // window.location.href = "character.html";
+        function character_progress() {
+          
+        }
       });
     </script>
   </body>
