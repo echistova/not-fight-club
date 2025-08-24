@@ -98,8 +98,6 @@ a {
   padding: 5px;
 }
 
-
-
 .registration {
   border: 1px solid #3498db;
   border-radius: 5px;
@@ -112,12 +110,21 @@ a {
   display: none;
   flex-direction: row;
   align-items: center;
-  padding: 5px;
-  margin-top: 40px;
-
+  padding: 20px;
+  margin: 20px 0 20px 0;
+  border-bottom: #a05e12 2px solid;
 }
 
-.block_fight_visible {
+.fight_description{
+  width: 100%;
+  height: 30%;
+  padding: 10px 20px;
+  border: 1px solid #607c80;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));  
+}
+
+/* .block_fight_visible {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -133,7 +140,7 @@ a {
   align-items: center;
   vertical-align: middle;
   top: -2000px;
-}
+} */
 
 .header-container {
   display: flex;

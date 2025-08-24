@@ -122,9 +122,14 @@
             wins: 0,
             loses: 0,
           };
-          const attack = {
+          const attack = [
+            {id:1, label: "Тыдыщ!", points: 10 },
+            {id:2, label: "Кусь", points: 10 },
+            {id:3, label: "Хрясь", points: 10 },
+            {id:4, label: "Тьфу", points: 10 },
+            {id:5, label: "Два Куся", points: 10 },
+          ]
 
-          }
           const defence = {
 
           }
@@ -172,6 +177,17 @@
 
         document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
         document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
+
+
+        const selectedRadio = document.querySelector('input[name="option"]:checked');
+
+        if (selectedRadio) {
+          console.log('Выбранное значение:', selectedRadio.value);
+        } else {
+          console.log('Ничего не выбрано');
+}
+
+
 
       <!--Прогрессбар для персонажа-->
 
