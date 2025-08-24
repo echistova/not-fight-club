@@ -15,6 +15,11 @@
           <a href="index.html"
             ><img src="./assets/png/home.png" alt="На главную"
           /></a>
+          <a href="hero.html">
+            <img
+              src="./assets/png/hero.png"
+              alt=" Ваш персонаж"
+          /></a>
           <a href="character.html">
             <img
               src="./assets/png/settings.png"
@@ -32,23 +37,113 @@
         </div>
         <div>
           <div class="block_fight">
-            <div>Персонаж</div>
-            <div>Селектор</div>
-            <div>Противник</div>
+            
+          <div class="character-card">
+          <div class="character-name">
+          <input
+            class="character-name-input"
+            type="text"
+            id="character-name"
+            readonly
+          />
+        </div>
+        <div class="character-edit">
+          <img class="character-image" src="" alt="character-image">
+        </div>
+      </div>
+            <div>
+            <div>Выберите 1 зону атаки и 2 зоны защиты</div>
+            <div>
+              <div>Селектор атаки</div>
+              <div>Селектор защиты</div>
+            </div>
+            <div><button>Удар!</button></div>
+            </div>
+
+            <div class="character-card">
+        <div class="character-name-enemy">
+          <input 
+            class="character-name-input"
+            type="text"
+            id="character-name-enemy"
+            readonly
+          />
+        </div>
+        <div class="character-edit">
+          <img class="character-image-enemy" src="" alt="character-image-enemy">
+        </div>
+      </div>
+
           </div>
           <div>Здесь описание боя</div>
         </div>
       </div>
     </main>
     <script>
-      const avatarData = localStorage.getItem("Player/avatar");
+      const avatar = [
+          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
+          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
+          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
+          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
+          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
+        ];
+      const enemy_avatar = [
+          { id: 1, src: "./assets/img/cobra.jpg", alt: "Cobra" },
+          { id: 2, src: "./assets/img/viper.jpg", alt: "Viper" },
+          { id: 3, src: "./assets/img/scorpion.jpg", alt: "Scorpion" },
+        ];        
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const name = "Ваш персонаж: " + localStorage.getItem("Player/name");
+
+     document.addEventListener("DOMContentLoaded", () => {
+        const name = localStorage.getItem("Player/name");
+        const nameEnemy = localStorage.getItem("Enemy/name");
+        const characterName = document.getElementById("character-name");
+        const characterNameEnemy = document.getElementById("character-name-enemy");
+
         if (name) {
-          document.getElementById("header-title").textContent = name;
+          document.getElementById("character-name").value = name;
         }
+
+        if (nameEnemy) {
+          document.getElementById("character-name-enemy").value = nameEnemy;
+        }
+
+        let avatarData;
+        const storedAvatar = localStorage.getItem("Player/avatar");
+        if (storedAvatar && storedAvatar !== "undefined") {
+            try {
+                avatarData = JSON.parse(storedAvatar);
+              } catch (e) {
+                  avatarData = { avatar: avatar[0] }; 
+              }
+            } else {
+                avatarData = { avatar: avatar[0] }; 
+            }
+
+          let avatarDataEnemy;
+          const storedAvatarEnemy = localStorage.getItem("Enemy/avatar");
+        if (storedAvatarEnemy && storedAvatarEnemy !== "undefined") {
+            try {
+              avatarDataEnemy = JSON.parse(storedAvatarEnemy);
+              } catch (e) {
+                avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
+              }
+            } else {
+              avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
+            }
+            
+        document.querySelector(".character-image").src = avatarData.src;
+        document.querySelector(".character-image").alt = avatarData.alt;
+
+        document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
+        document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
+
       });
+
+
+
+
+
 
       submit.addEventListener("click", () => {
         const block_fight = document.querySelector(".block_fight");

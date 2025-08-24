@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <link type="script"  src="person.js" /> -->
+    <title>Настройки персонажей</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="header-title" id="header-title">Ваш персонаж</div>
+      <div class="navigation">
+        <nav>
+          <a href="fight.html"
+            ><img src="./assets/png/fight.png" alt="В бой!"
+          /></a>
+          <a href="hero.html">
+            <img
+              src="./assets/png/hero.png"
+              alt=" Ваш персонаж"
+          /></a>
+          <a href="character.html">
+            <img
+              src="./assets/png/settings.png"
+              alt=" Изменить настройки персонажа"
+          /></a>
+        </nav>
+      </div>
+    </header>
+    <main class="main-container">
+      <div class="character-card">
+        <div class="character-card-title">Ваш персонаж:</div>
+        <div class="character-name">
+          <input
+            class="character-name-input"
+            type="text"
+            id="character-name"
+            readonly
+          />
+        </div>
+        <div class="character-edit">
+          <img class="character-image" src="" alt="character-image">
+        </div>
+      </div>
+  
+
+    </main>
+    <script>
+      const avatar = [
+          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
+          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
+          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
+          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
+          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const name = localStorage.getItem("Player/name");
+        const characterName = document.getElementById("character-name");
+
+        if (name) {
+          document.getElementById("character-name").value = name;
+        }
+
+        let avatarData;
+        const storedAvatar = localStorage.getItem("Player/avatar");
+        if (storedAvatar && storedAvatar !== "undefined") {
+            try {
+                avatarData = JSON.parse(storedAvatar);
+              } catch (e) {
+                  avatarData = { avatar: avatar[0] }; 
+              }
+            } else {
+                avatarData = { avatar: avatar[0] }; 
+            }
+
+        document.querySelector(".character-image").src = avatarData.src;
+        document.querySelector(".character-image").alt = avatarData.alt;
+
+      });
+    </script>
+  </body>
+</html>
