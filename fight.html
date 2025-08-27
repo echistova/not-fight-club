@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Персонаж</title>
+    <script type="module" src="./data.js"></script>
+    <title>Песочный бой</title>
   </head>
   <body>
     <header class="header-container">
@@ -15,9 +16,7 @@
             ><img src="./assets/png/home.png" alt="На главную"
           /></a>
           <a href="hero.html">
-            <img
-              src="./assets/png/hero.png"
-              alt=" Ваш персонаж"
+            <img src="./assets/png/hero.png" alt=" Ваш персонаж"
           /></a>
           <a href="character.html">
             <img
@@ -44,34 +43,84 @@
                 />
               </div>
               <div class="character-edit">
-                <img class="character-image" src="" alt="character-image">
+                <img class="character-image" src="" alt="character-image" />
               </div>
-             <div><progress class = "progress" value="0" max="150" id="progress-character"></progress></div>
+              <div>
+                <progress
+                  class="progress"
+                  value="0"
+                  max="150"
+                  id="progress-character"
+                ></progress>
+              </div>
             </div>
-            <div class = "container-fight">
-              <div class="fight_message">Выберите один вид атаки и два вида защиты</div>
+            <div class="container-fight">
+              <div class="fight_message">
+                Выберите один вид атаки и два вида защиты
+              </div>
               <div class="container-radio">
                 <div class="radio-group" id="radio-group">
-                  <label for="radio1"> Тыдыщ! <input type="radio" name="option" id="radio1"/></label>
-                  <label for="radio2"> Кусь<input type="radio" name="option" id="radio2"/> </label>
-                  <label for="radio3"> Хрясь<input type="radio" name="option" id="radio3"/></label>
-                  <label for="radio4"> Тьфу<input type="radio" name="option" id="radio4"/></label>
-                  <label for="radio5"> Два Куся<input type="radio" name="option" id="radio5"/></label>
+                  <label for="radio1">
+                    Тыдыщ!
+                    <input type="radio" name="option" id="radio1" value="1"
+                  /></label>
+                  <label for="radio2">
+                    Кусь<input
+                      type="radio"
+                      name="option"
+                      id="radio2"
+                      value="2"
+                    />
+                  </label>
+                  <label for="radio3">
+                    Хрясь<input
+                      type="radio"
+                      name="option"
+                      id="radio3"
+                      value="3"
+                  /></label>
+                  <label for="radio4">
+                    Тьфу<input type="radio" name="option" id="radio4" value="4"
+                  /></label>
+                  <label for="radio5">
+                    Два Куся<input
+                      type="radio"
+                      name="option"
+                      id="radio5"
+                      value="5"
+                  /></label>
                 </div>
                 <div class="checkbox-group" id="checkbox-group">
-                  <label for="checkbox1"><input type="checkbox" id="checkbox1"/> Тыдыщ!</label>
-                  <label for="checkbox2"><input type="checkbox" id="checkbox2"/> Кусь</label>
-                  <label for="checkbox3"><input type="checkbox" id="checkbox3"/> Хрясь</label>
-                  <label for="checkbox4"><input type="checkbox" id="checkbox4"/> Тьфу</label>
-                  <label for="checkbox5"><input type="checkbox" id="checkbox5"/> Два Куся</label>
+                  <label for="checkbox1"
+                    ><input type="checkbox" id="checkbox1" value="1" />
+                    Тыдыщ!</label
+                  >
+                  <label for="checkbox2"
+                    ><input type="checkbox" id="checkbox2" value="2" />
+                    Кусь</label
+                  >
+                  <label for="checkbox3"
+                    ><input type="checkbox" id="checkbox3" value="3" />
+                    Хрясь</label
+                  >
+                  <label for="checkbox4"
+                    ><input type="checkbox" id="checkbox4" value="4" />
+                    Тьфу</label
+                  >
+                  <label for="checkbox5"
+                    ><input type="checkbox" id="checkbox5" value="5" /> Два
+                    Куся</label
+                  >
                 </div>
               </div>
-              <div><button class="button-submit" id="attack">Удар!</button></div>  
+              <div>
+                <button class="button-submit" id="button-attack">Удар!</button>
+              </div>
             </div>
 
             <div class="character-card">
               <div class="character-name-enemy">
-                <input 
+                <input
                   class="character-name-input"
                   type="text"
                   id="character-name-enemy"
@@ -79,65 +128,84 @@
                 />
               </div>
               <div class="character-edit">
-                <img class="character-image-enemy" src="" alt="character-image-enemy">
+                <img
+                  class="character-image-enemy"
+                  src=""
+                  alt="character-image-enemy"
+                />
               </div>
-              <div><progress class = "progress" value="0" max="150" id="progress-enemy"></progress></div>
+              <div>
+                <progress
+                  class="progress"
+                  value="0"
+                  max="150"
+                  id="progress-enemy"
+                ></progress>
+              </div>
             </div>
           </div>
-          <div class="fight_description" id="fight_description">Здесь будет описание боя</div>
+          <div class="fight_description" id="fight_description">
+            <input
+              type="text"
+              class="textCharacter"
+              id="textCharacter"
+              readonly
+            />
+            Здесь будет описание боя
+          </div>
         </div>
       </div>
     </main>
     <script>
-      const avatar = [
-          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
-          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
-          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
-          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
-          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
-        ];
-      const enemy_avatar = [
-          { id: 1, src: "./assets/img/cobra.jpg", alt: "Cobra" },
-          { id: 2, src: "./assets/img/viper.jpg", alt: "Viper" },
-          { id: 3, src: "./assets/img/scorpion.jpg", alt: "Scorpion" },
-        ];        
+      const player_wins = [
+        {
+          name: "",
+          id: 0,
+          wins: 0,
+          loses: 0,
+        },
+      ];
+      const enemy_wins = [
+        {
+          name: "",
+          wins: 0,
+          loses: 0,
+        },
+      ];
 
-
-     document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const name = localStorage.getItem("Player/name");
         const nameEnemy = localStorage.getItem("Enemy/name");
         const characterName = document.getElementById("character-name");
-        const characterNameEnemy = document.getElementById("character-name-enemy");
+        const characterNameEnemy = document.getElementById(
+          "character-name-enemy"
+        );
+        const avatar = window.appData.avatar;
+        const enemy_avatar = window.appData.enemy_avatar;
+        const attack = window.appData.attack;
 
-        const player_wins = {
-            name: "",
-            id: 0,
-            attack: 0,
-            wins: 0,
-            loses: 0,
-          };
-          const enemy_wins = {
-            name: "",
-            avatar: 0,
-            wins: 0,
-            loses: 0,
-          };
-          const attack = [
-            {id:1, label: "Тыдыщ!", points: 10 },
-            {id:2, label: "Кусь", points: 10 },
-            {id:3, label: "Хрясь", points: 10 },
-            {id:4, label: "Тьфу", points: 10 },
-            {id:5, label: "Два Куся", points: 10 },
-          ]
+        // Ограничение выбираемых чеков
+        const checkboxes = document.querySelectorAll(
+          '.checkbox-group input[type="checkbox"]'
+        );
+        const maxSelection = 2;
 
-          const defence = {
+        checkboxes.forEach((cb) => {
+          cb.addEventListener("change", () => {
+            const checkedCount = [...checkboxes].filter(
+              (c) => c.checked
+            ).length;
+            if (checkedCount > maxSelection) {
+              cb.checked = false;
+              alert(`Выберите только ${maxSelection} пункта`);
+            }
+          });
+        });
 
-          }
-
-        document.getElementById('fight').addEventListener('click', function() {
-          this.style.display = 'none';
-          document.getElementById('block_fight').style.display = 'flex';
-          document.getElementById('fight_description').style.display = 'flex';
+        document.getElementById("fight").addEventListener("click", function () {
+          this.style.display = "none";
+          document.getElementById("block_fight").style.display = "flex";
+          document.getElementById("fight_description").style.display = "flex";
         });
 
         if (name) {
@@ -151,52 +219,84 @@
         let avatarData;
         const storedAvatar = localStorage.getItem("Player/avatar");
         if (storedAvatar && storedAvatar !== "undefined") {
-            try {
-                avatarData = JSON.parse(storedAvatar);
-              } catch (e) {
-                  avatarData = { avatar: avatar[0] }; 
-              }
-            } else {
-                avatarData = { avatar: avatar[0] }; 
-            }
+          try {
+            avatarData = JSON.parse(storedAvatar);
+          } catch (e) {
+            avatarData = { avatar: avatar[0] };
+          }
+        } else {
+          avatarData = { avatar: avatar[0] };
+        }
 
-          let avatarDataEnemy;
-          const storedAvatarEnemy = localStorage.getItem("Enemy/avatar");
+        let avatarDataEnemy;
+        const storedAvatarEnemy = localStorage.getItem("Enemy/avatar");
         if (storedAvatarEnemy && storedAvatarEnemy !== "undefined") {
-            try {
-              avatarDataEnemy = JSON.parse(storedAvatarEnemy);
-              } catch (e) {
-                avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
-              }
-            } else {
-              avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
-            }
-            
+          try {
+            avatarDataEnemy = JSON.parse(storedAvatarEnemy);
+          } catch (e) {
+            avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+          }
+        } else {
+          avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+        }
+
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
+        document.querySelector(".character-image-enemy").src =
+          avatarDataEnemy.src;
+        document.querySelector(".character-image-enemy").alt =
+          avatarDataEnemy.alt;
 
-        document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
-        document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
+        const healthCharacter = avatarData.health;
+        const healthEnemy = avatarDataEnemy.health;
+        const count_attack = avatarDataEnemy.count_attack;
 
+        // Расчет поражений
+        document
+          .getElementById("button-attack")
+          .addEventListener("click", function () {
+            const protectCharacter = document.querySelectorAll(
+              'input[name="option"]:checked'
+            );
 
-        const selectedRadio = document.querySelector('input[name="option"]:checked');
+            let hitEnemy;
+            let damageCharacter = 0;
+            healthCharacternew = healthCharacter;
 
-        if (selectedRadio) {
-          console.log('Выбранное значение:', selectedRadio.value);
-        } else {
-          console.log('Ничего не выбрано');
-}
+            // textCharacter = characterName + " сделал " + characterNameEnemy;
+            // textEnemy = characterNameEnemy + " ответил " + characterName;
 
+            for (let i = 0; i < count_attack; i++) {
+              hitEnemy = attack[Math.floor(Math.random() * attack.length)];
+              const isProtected = [...protectCharacter].some(
+                (item) => item.value === hitEnemy.id
+              );
+              if (!isProtected) {
+                damageCharacter += hitEnemy.points;
+                textCharacter += " " + attack.label;
+              }
+            }
 
+            healthCharacternew = healthCharacternew - damageCharacter;
+            // healthEnemynew = healthEnemynew - damageCharacter;
 
-      <!--Прогрессбар для персонажа-->
+            localStorage.setItem("Damage/Character", damageCharacter);
+            localStorage.setItem("Health/Character", healthCharacternew);
 
-        let progressCharacter = document.getElementById('progress-character');
-        let currentValue = 0;
+            // if (textCharacter) {
+            //   document.getElementById("textCharacter").value = textCharacter;
+            // }
 
-        function character_progress() {
-          
-        }
+            <!--Прогрессбар для персонажа-->
+
+            let progressCharacter =
+              document.getElementById("progress-character");
+            progressCharacter.value = damageCharacter;
+            progressCharacter.max = healthCharacternew;
+            // let currentValue = 0;
+
+            function character_progress() {}
+          });
       });
     </script>
   </body>

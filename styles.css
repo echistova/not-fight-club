@@ -40,7 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;  
+  width: 100%;
   align-items: center;
   vertical-align: top;
 }
@@ -101,27 +101,27 @@ a {
 .registration {
   border: 1px solid #3498db;
   border-radius: 5px;
-  outline: none;  
+  outline: none;
   font-size: 15px;
   padding: 5px;
 }
 
-.block_fight, .fight_description {
+.block_fight,
+.fight_description {
   display: none;
   flex-direction: row;
   align-items: center;
   padding: 20px;
   margin: 20px 0 20px 0;
-  border-bottom: #a05e12 2px solid;
 }
 
-.fight_description{
+.fight_description {
   width: 100%;
   height: 30%;
   padding: 10px 20px;
   border: 1px solid #607c80;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));  
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
 /* .block_fight_visible {
@@ -184,7 +184,7 @@ a {
   margin: 20px 0 0;
 }
 
-.character-edit{
+.character-edit {
   position: relative;
   display: inline-block;
 }
@@ -193,35 +193,37 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  border: 1px solid #ffffffb3;       
-  border-radius: 4px;           
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  border: 1px solid #ffffffb3;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .character-image-enemy {
   width: 100%;
   height: auto;
   display: block;
-   border: 1px solid #ffffffb3;       
-  border-radius: 4px;           
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  border: 1px solid #ffffffb3;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.character-edit-image, .character-edit-image-enemy{
+.character-edit-image,
+.character-edit-image-enemy {
   position: absolute;
   right: 0;
   bottom: 0;
   width: auto;
   height: auto;
   z-index: 10;
-  padding: 10px;;
-  border: 2px solid #fff;       
-  border-radius: 4px;           
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   visibility: hidden;
 }
-.character-edit-image:hover, .character-edit-image-enemy:hover{
-  transform: scale(1.1);  
+.character-edit-image:hover,
+.character-edit-image-enemy:hover {
+  transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
@@ -234,7 +236,8 @@ a {
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
-.character-name, .character-name-enemy {
+.character-name,
+.character-name-enemy {
   width: 100%;
   padding: 10px 20px;
   border: 1px solid #607c80;
@@ -246,7 +249,7 @@ a {
   width: 100%;
   font-size: 20px;
   font-weight: 500;
-  color:#913030;
+  color: #913030;
   padding: 10px 20px;
   border: none;
   text-transform: uppercase;
@@ -286,8 +289,8 @@ progress::-webkit-progress-value {
   background-color: #fafafa;
 }
 
-.container-fight{
-  display: flex; 
+.container-fight {
+  display: flex;
   width: 70%;
   flex-direction: column;
   align-items: center;
@@ -302,7 +305,7 @@ progress::-webkit-progress-value {
   color: #5f1010;
   width: 70%;
   align-items: center;
-  margin: 20px 0 20px;  
+  margin: 20px 0 20px;
 }
 
 .container-radio {

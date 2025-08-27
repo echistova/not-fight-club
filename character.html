@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- <link type="script"  src="person.js" /> -->
+    <script type="module" src="./data.js"></script>
     <title>Настройки персонажей</title>
   </head>
   <body>
@@ -16,9 +16,7 @@
             ><img src="./assets/png/fight.png" alt="В бой!"
           /></a>
           <a href="hero.html">
-            <img
-              src="./assets/png/hero.png"
-              alt=" Ваш персонаж"
+            <img src="./assets/png/hero.png" alt=" Ваш персонаж"
           /></a>
           <a href="character.html">
             <img
@@ -40,8 +38,13 @@
           />
         </div>
         <div class="character-edit">
-          <img class="character-image" src="" alt="character-image">
-          <img class="character-edit-image" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж"/>
+          <img class="character-image" src="" alt="character-image" />
+          <img
+            class="character-edit-image"
+            src="./assets/png/edit.png"
+            alt="edit-image"
+            title="Выбрать персонаж"
+          />
         </div>
         <div class="button">
           <button type="button" class="button-submit" id="button-edit">
@@ -53,11 +56,10 @@
         </div>
       </div>
 
-
       <div class="character-card">
         <div class="character-card-title">Соперник:</div>
         <div class="character-name-enemy">
-          <input 
+          <input
             class="character-name-input"
             type="text"
             id="character-name-enemy"
@@ -65,8 +67,17 @@
           />
         </div>
         <div class="character-edit">
-          <img class="character-image-enemy" src="" alt="character-image-enemy">
-          <img class="character-edit-image-enemy" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж"/>
+          <img
+            class="character-image-enemy"
+            src=""
+            alt="character-image-enemy"
+          />
+          <img
+            class="character-edit-image-enemy"
+            src="./assets/png/edit.png"
+            alt="edit-image"
+            title="Выбрать персонаж"
+          />
         </div>
         <div class="button">
           <button type="button" class="button-submit" id="button-edit-enemy">
@@ -77,33 +88,29 @@
           </button>
         </div>
       </div>
-
     </main>
     <script>
-      const avatar = [
-          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
-          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
-          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
-          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
-          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
-        ];
-      const enemy_avatar = [
-          { id: 1, src: "./assets/img/cobra.jpg", alt: "Cobra" },
-          { id: 2, src: "./assets/img/viper.jpg", alt: "Viper" },
-          { id: 3, src: "./assets/img/scorpion.jpg", alt: "Scorpion" },
-        ];  
-
-       document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const submitButton = document.getElementById("button-submit");
         const editButton = document.getElementById("button-edit");
-        const submitButtonEnemy = document.getElementById("button-submit-enemy");
-        const editButtonEnemy = document.getElementById("button-edit-enemy");        
+        const avatar = window.appData.avatar;
+        const enemy_avatar = window.appData.enemy_avatar;
+        const submitButtonEnemy = document.getElementById(
+          "button-submit-enemy"
+        );
+        const editButtonEnemy = document.getElementById("button-edit-enemy");
         const name = localStorage.getItem("Player/name");
         const nameEnemy = localStorage.getItem("Enemy/name");
         const characterName = document.getElementById("character-name");
-        const characterNameEnemy = document.getElementById("character-name-enemy");
-        const characterEditImage = document.querySelector('.character-edit-image');
-        const characterEditImageEnemy = document.querySelector('.character-edit-image-enemy');
+        const characterNameEnemy = document.getElementById(
+          "character-name-enemy"
+        );
+        const characterEditImage = document.querySelector(
+          ".character-edit-image"
+        );
+        const characterEditImageEnemy = document.querySelector(
+          ".character-edit-image-enemy"
+        );
 
         if (name) {
           document.getElementById("character-name").value = name;
@@ -116,95 +123,104 @@
         let avatarData;
         const storedAvatar = localStorage.getItem("Player/avatar");
         if (storedAvatar && storedAvatar !== "undefined") {
-            try {
-                avatarData = JSON.parse(storedAvatar);
-              } catch (e) {
-                  avatarData = { avatar: avatar[0] }; 
-              }
-            } else {
-                avatarData = { avatar: avatar[0] }; 
-            }
+          try {
+            avatarData = JSON.parse(storedAvatar);
+          } catch (e) {
+            avatarData = { avatar: avatar[0] };
+          }
+        } else {
+          avatarData = { avatar: avatar[0] };
+        }
 
-          let avatarDataEnemy;
-          const storedAvatarEnemy = localStorage.getItem("Enemy/avatar");
+        let avatarDataEnemy;
+        const storedAvatarEnemy = localStorage.getItem("Enemy/avatar");
         if (storedAvatarEnemy && storedAvatarEnemy !== "undefined") {
-            try {
-              avatarDataEnemy = JSON.parse(storedAvatarEnemy);
-              } catch (e) {
-                avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
-              }
-            } else {
-              avatarDataEnemy = { enemy_avatar: enemy_avatar[0] }; 
-            }
-            
+          try {
+            avatarDataEnemy = JSON.parse(storedAvatarEnemy);
+          } catch (e) {
+            avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+          }
+        } else {
+          avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+        }
+
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
 
-        document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
-        document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
+        document.querySelector(".character-image-enemy").src =
+          avatarDataEnemy.src;
+        document.querySelector(".character-image-enemy").alt =
+          avatarDataEnemy.alt;
 
         submitButton.addEventListener("click", () => {
-          localStorage.setItem("Player/name", document.getElementById("character-name").value);
-          characterEditImage.style.visibility = 'hidden';
+          localStorage.setItem(
+            "Player/name",
+            document.getElementById("character-name").value
+          );
+          characterEditImage.style.visibility = "hidden";
           characterName.classList.remove("character-name-editable");
           submitButton.blur();
         });
 
         submitButtonEnemy.addEventListener("click", () => {
-            localStorage.setItem("Enemy/name", document.getElementById("character-name-enemy").value);
-            characterEditImageEnemy.style.visibility = 'hidden';
-            submitButton.blur();
+          localStorage.setItem(
+            "Enemy/name",
+            document.getElementById("character-name-enemy").value
+          );
+          characterEditImageEnemy.style.visibility = "hidden";
+          submitButton.blur();
         });
 
         editButton.addEventListener("click", () => {
           if (characterName.hasAttribute("readonly")) {
             characterName.removeAttribute("readonly");
           }
-          characterEditImage.style.visibility = 'visible';
+          characterEditImage.style.visibility = "visible";
           characterName.classList.add("character-name-editable");
           editButton.blur();
         });
 
         editButtonEnemy.addEventListener("click", () => {
-          characterEditImageEnemy.style.visibility = 'visible';
+          characterEditImageEnemy.style.visibility = "visible";
           editButton.blur();
         });
 
         characterEditImage.addEventListener("click", () => {
-            const currentId = avatarData.id;
-            let newId;
-            if (currentId < avatar.length) {
-              newId = currentId;
-            } else {
-              newId = 0;
-            }
-            
+          const currentId = avatarData.id;
+          let newId;
+          if (currentId < avatar.length) {
+            newId = currentId;
+          } else {
+            newId = 0;
+          }
+
           avatarData = avatar[newId];
           localStorage.setItem("Player/avatar", JSON.stringify(avatarData));
           document.querySelector(".character-image").src = avatarData.src;
           document.querySelector(".character-image").alt = avatarData.alt;
           characterEditImage.blur();
-       });
+        });
 
+        characterEditImageEnemy.addEventListener("click", () => {
+          const currentId = avatarDataEnemy.id;
+          let newId;
+          if (currentId < enemy_avatar.length) {
+            newId = currentId;
+          } else {
+            newId = 0;
+          }
 
-       characterEditImageEnemy.addEventListener("click", () => {
-            const currentId = avatarDataEnemy.id;
-            let newId;
-            if (currentId < enemy_avatar.length) {
-              newId = currentId;
-            } else {
-              newId = 0;
-            }
-            
           avatarDataEnemy = enemy_avatar[newId];
           localStorage.setItem("Enemy/avatar", JSON.stringify(avatarDataEnemy));
-          document.getElementById("character-name-enemy").value = avatarDataEnemy.alt;
+          document.getElementById("character-name-enemy").value =
+            avatarDataEnemy.alt;
           localStorage.setItem("Enemy/name", avatarDataEnemy.alt);
-          document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
-          document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
+          document.querySelector(".character-image-enemy").src =
+            avatarDataEnemy.src;
+          document.querySelector(".character-image-enemy").alt =
+            avatarDataEnemy.alt;
           characterEditImageEnemy.blur();
-       });
-
+        });
       });
     </script>
   </body>

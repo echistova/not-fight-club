@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- <link type="script"  src="person.js" /> -->
+    <script type="module" src="./data.js"></script>
     <title>Настройки персонажей</title>
   </head>
   <body>
@@ -16,9 +16,7 @@
             ><img src="./assets/png/fight.png" alt="В бой!"
           /></a>
           <a href="hero.html">
-            <img
-              src="./assets/png/hero.png"
-              alt=" Ваш персонаж"
+            <img src="./assets/png/hero.png" alt=" Ваш персонаж"
           /></a>
           <a href="character.html">
             <img
@@ -40,8 +38,13 @@
           />
         </div>
         <div class="character-edit">
-          <img class="character-image" src="" alt="character-image">
-          <img class="character-edit-image" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж"/>
+          <img class="character-image" src="" alt="character-image" />
+          <img
+            class="character-edit-image"
+            src="./assets/png/edit.png"
+            alt="edit-image"
+            title="Выбрать персонаж"
+          />
         </div>
         <div class="button">
           <button type="button" class="button-submit" id="button-edit">
@@ -52,24 +55,17 @@
           </button>
         </div>
       </div>
-  
-
     </main>
     <script>
-      const avatar = [
-          { id: 1, src: "./assets/img/fenek.jpg", alt: "Fenek" },
-          { id: 2, src: "./assets/img/berkut.jpg", alt: "Berkut" },
-          { id: 3, src: "./assets/img/cat.jpg", alt: "Cat" },
-          { id: 4, src: "./assets/img/varan.jpg", alt: "Varan" },
-          { id: 5, src: "./assets/img/peregusna.jpg", alt: "Peregusna" },
-        ];
-
-        document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const name = localStorage.getItem("Player/name");
+        const avatar = window.appData.avatar;
         const characterName = document.getElementById("character-name");
-        const characterEditImage = document.querySelector('.character-edit-image');
+        const characterEditImage = document.querySelector(
+          ".character-edit-image"
+        );
         const submitButton = document.getElementById("button-submit");
-        const editButton = document.getElementById("button-edit");        
+        const editButton = document.getElementById("button-edit");
 
         if (name) {
           document.getElementById("character-name").value = name;
@@ -78,21 +74,24 @@
         let avatarData;
         const storedAvatar = localStorage.getItem("Player/avatar");
         if (storedAvatar && storedAvatar !== "undefined") {
-            try {
-                avatarData = JSON.parse(storedAvatar);
-              } catch (e) {
-                  avatarData = { avatar: avatar[0] }; 
-              }
-            } else {
-                avatarData = { avatar: avatar[0] }; 
-            }
+          try {
+            avatarData = JSON.parse(storedAvatar);
+          } catch (e) {
+            avatarData = { avatar: avatar[0] };
+          }
+        } else {
+          avatarData = { avatar: avatar[0] };
+        }
 
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
-       
+
         submitButton.addEventListener("click", () => {
-          localStorage.setItem("Player/name", document.getElementById("character-name").value);
-          characterEditImage.style.visibility = 'hidden';
+          localStorage.setItem(
+            "Player/name",
+            document.getElementById("character-name").value
+          );
+          characterEditImage.style.visibility = "hidden";
           characterName.classList.remove("character-name-editable");
           submitButton.blur();
         });
@@ -101,28 +100,26 @@
           if (characterName.hasAttribute("readonly")) {
             characterName.removeAttribute("readonly");
           }
-          characterEditImage.style.visibility = 'visible';
+          characterEditImage.style.visibility = "visible";
           characterName.classList.add("character-name-editable");
           editButton.blur();
         });
 
         characterEditImage.addEventListener("click", () => {
-            const currentId = avatarData.id;
-            let newId;
-            if (currentId < avatar.length) {
-              newId = currentId;
-            } else {
-              newId = 0;
-            }
-            
+          const currentId = avatarData.id;
+          let newId;
+          if (currentId < avatar.length) {
+            newId = currentId;
+          } else {
+            newId = 0;
+          }
+
           avatarData = avatar[newId];
           localStorage.setItem("Player/avatar", JSON.stringify(avatarData));
           document.querySelector(".character-image").src = avatarData.src;
           document.querySelector(".character-image").alt = avatarData.alt;
           characterEditImage.blur();
-       });
-
-
+        });
       });
     </script>
   </body>
