@@ -12,17 +12,9 @@
       <div class="header-title" id="header-title"></div>
       <div class="navigation">
         <nav>
-          <a href="index.html"
-            ><img src="./assets/png/home.png" alt="На главную"
-          /></a>
-          <a href="hero.html">
-            <img src="./assets/png/hero.png" alt=" Ваш персонаж"
-          /></a>
-          <a href="character.html">
-            <img
-              src="./assets/png/settings.png"
-              alt=" Изменить настройки персонажа"
-          /></a>
+          <a href="index.html"><img src="./assets/png/home.png" alt="На главную" /></a>
+          <a href="hero.html"> <img src="./assets/png/hero.png" alt=" Ваш персонаж" /></a>
+          <a href="character.html"> <img src="./assets/png/settings.png" alt=" Изменить настройки персонажа" /></a>
         </nav>
       </div>
     </header>
@@ -35,82 +27,35 @@
           <div class="block_fight" id="block_fight">
             <div class="character-card">
               <div class="character-name">
-                <input
-                  class="character-name-input"
-                  type="text"
-                  id="character-name"
-                  readonly
-                />
+                <input class="character-name-input" type="text" id="character-name" readonly />
               </div>
               <div class="character-edit">
                 <img class="character-image" src="" alt="character-image" />
               </div>
-              <div>
-                <progress
-                  class="progress"
-                  value="0"
-                  max="150"
-                  id="progress-character"
-                ></progress>
+              <div class="progress-container">
+                <progress class="progress" value="100" max="100" id="progress-character"></progress>
+                <div class="progress-title" id="progressTitleCharacter"></div>
               </div>
             </div>
             <div class="container-fight">
-              <div class="fight_message">
-                Выберите один вид атаки и два вида защиты
-              </div>
+              <div class="fight_message">Выберите один вид атаки и два вида защиты</div>
               <div class="container-radio">
                 <div class="radio-group" id="radio-group">
                   <label for="radio1">
                     Тыдыщ!
                     <input type="radio" name="option" id="radio1" value="1"
                   /></label>
-                  <label for="radio2">
-                    Кусь<input
-                      type="radio"
-                      name="option"
-                      id="radio2"
-                      value="2"
-                    />
-                  </label>
-                  <label for="radio3">
-                    Хрясь<input
-                      type="radio"
-                      name="option"
-                      id="radio3"
-                      value="3"
-                  /></label>
-                  <label for="radio4">
-                    Тьфу<input type="radio" name="option" id="radio4" value="4"
-                  /></label>
-                  <label for="radio5">
-                    Два Куся<input
-                      type="radio"
-                      name="option"
-                      id="radio5"
-                      value="5"
-                  /></label>
+                  <label for="radio2"> Кусь<input type="radio" name="option" id="radio2" value="2" /> </label>
+                  <label for="radio3"> Хрясь<input type="radio" name="option" id="radio3" value="3" /></label>
+                  <label for="radio4"> Тьфу<input type="radio" name="option" id="radio4" value="4" /></label>
+                  <label for="radio5"> Два Куся<input type="radio" name="option" id="radio5" value="5" /></label>
                 </div>
                 <div class="checkbox-group" id="checkbox-group">
-                  <label for="checkbox1"
-                    ><input type="checkbox" id="checkbox1" value="1" />
-                    Тыдыщ!</label
-                  >
-                  <label for="checkbox2"
-                    ><input type="checkbox" id="checkbox2" value="2" />
-                    Кусь</label
-                  >
-                  <label for="checkbox3"
-                    ><input type="checkbox" id="checkbox3" value="3" />
-                    Хрясь</label
-                  >
-                  <label for="checkbox4"
-                    ><input type="checkbox" id="checkbox4" value="4" />
-                    Тьфу</label
-                  >
-                  <label for="checkbox5"
-                    ><input type="checkbox" id="checkbox5" value="5" /> Два
-                    Куся</label
-                  >
+                  <label for="checkbox1"><input type="checkbox" id="checkbox1" value="1" /> Тыдыщ!</label>
+                  <label for="checkbox2"><input type="checkbox" id="checkbox2" value="2" /> Кусь</label>
+                  <label for="checkbox3"><input type="checkbox" id="checkbox3" value="3" /> Хрясь</label>
+                  <label for="checkbox4"><input type="checkbox" id="checkbox4" value="4" /> Тьфу</label>
+                  <label for="checkbox5"><input type="checkbox" id="checkbox5" value="5" /> Два Куся</label>
                 </div>
               </div>
               <div>
@@ -120,37 +65,19 @@
 
             <div class="character-card">
               <div class="character-name-enemy">
-                <input
-                  class="character-name-input"
-                  type="text"
-                  id="character-name-enemy"
-                  readonly
-                />
+                <input class="character-name-input" type="text" id="character-name-enemy" readonly />
               </div>
               <div class="character-edit">
-                <img
-                  class="character-image-enemy"
-                  src=""
-                  alt="character-image-enemy"
-                />
+                <img class="character-image-enemy" src="" alt="character-image-enemy" />
               </div>
-              <div>
-                <progress
-                  class="progress"
-                  value="0"
-                  max="150"
-                  id="progress-enemy"
-                ></progress>
+              <div class="progress-container">
+                <progress class="progress" value="100" max="100" id="progress-enemy"></progress>
+                <div class="progress-title" id="progressTitleEnemy"></div>
               </div>
             </div>
           </div>
           <div class="fight_description" id="fight_description">
-            <input
-              type="text"
-              class="textCharacter"
-              id="textCharacter"
-              readonly
-            />
+            <input type="text" class="textfight" id="textfight" readonly />
             Здесь будет описание боя
           </div>
         </div>
@@ -165,6 +92,7 @@
           loses: 0,
         },
       ];
+
       const enemy_wins = [
         {
           name: "",
@@ -174,27 +102,28 @@
       ];
 
       document.addEventListener("DOMContentLoaded", () => {
+        let healthCharacter;
+        let healthEnemy;
+
         const name = localStorage.getItem("Player/name");
         const nameEnemy = localStorage.getItem("Enemy/name");
         const characterName = document.getElementById("character-name");
-        const characterNameEnemy = document.getElementById(
-          "character-name-enemy"
-        );
+        const characterNameEnemy = document.getElementById("character-name-enemy");
         const avatar = window.appData.avatar;
         const enemy_avatar = window.appData.enemy_avatar;
         const attack = window.appData.attack;
 
-        // Ограничение выбираемых чеков
-        const checkboxes = document.querySelectorAll(
-          '.checkbox-group input[type="checkbox"]'
-        );
+        const progressTitleEnemy = document.getElementById("progressTitleEnemy");
+        const progressTitleCharacter = document.getElementById("progressTitleCharacter");
+        const progressCharacter = document.getElementById("progress-character");
+        const progressEnemy = document.getElementById("progress-enemy");
+
+        const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
         const maxSelection = 2;
 
         checkboxes.forEach((cb) => {
           cb.addEventListener("change", () => {
-            const checkedCount = [...checkboxes].filter(
-              (c) => c.checked
-            ).length;
+            const checkedCount = [...checkboxes].filter((c) => c.checked).length;
             if (checkedCount > maxSelection) {
               cb.checked = false;
               alert(`Выберите только ${maxSelection} пункта`);
@@ -206,14 +135,28 @@
           this.style.display = "none";
           document.getElementById("block_fight").style.display = "flex";
           document.getElementById("fight_description").style.display = "flex";
+
+          healthCharacter = avatarData.health;
+          healthEnemy = avatarDataEnemy.health;
+
+          localStorage.setItem("Health/Character", healthCharacter);
+          localStorage.setItem("Health/Enemy", healthEnemy);
+
+          progressTitleCharacter.textContent = healthCharacter + " / " + healthCharacter;
+          progressTitleEnemy.textContent = healthEnemy + " / " + healthEnemy;
+
+          progressCharacter.max = healthCharacter;
+          progressCharacter.value = healthCharacter;
+          progressEnemy.max = healthEnemy;
+          progressEnemy.value = healthEnemy;
         });
 
         if (name) {
-          document.getElementById("character-name").value = name;
+          characterName.value = name;
         }
 
         if (nameEnemy) {
-          document.getElementById("character-name-enemy").value = nameEnemy;
+          characterNameEnemy.value = nameEnemy;
         }
 
         let avatarData;
@@ -222,10 +165,10 @@
           try {
             avatarData = JSON.parse(storedAvatar);
           } catch (e) {
-            avatarData = { avatar: avatar[0] };
+            avatarData = { avatar: avatar[0], health: 100 };
           }
         } else {
-          avatarData = { avatar: avatar[0] };
+          avatarData = { avatar: avatar[0], health: 100 };
         }
 
         let avatarDataEnemy;
@@ -234,69 +177,60 @@
           try {
             avatarDataEnemy = JSON.parse(storedAvatarEnemy);
           } catch (e) {
-            avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+            avatarDataEnemy = { enemy_avatar: enemy_avatar[0], health: 100 };
           }
         } else {
-          avatarDataEnemy = { enemy_avatar: enemy_avatar[0] };
+          avatarDataEnemy = { enemy_avatar: enemy_avatar[0], health: 100 };
         }
 
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
-        document.querySelector(".character-image-enemy").src =
-          avatarDataEnemy.src;
-        document.querySelector(".character-image-enemy").alt =
-          avatarDataEnemy.alt;
 
-        const healthCharacter = avatarData.health;
-        const healthEnemy = avatarDataEnemy.health;
-        const count_attack = avatarDataEnemy.count_attack;
+        document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
+        document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
 
-        // Расчет поражений
-        document
-          .getElementById("button-attack")
-          .addEventListener("click", function () {
-            const protectCharacter = document.querySelectorAll(
-              'input[name="option"]:checked'
-            );
+        progressCharacter.value = avatarData.health;
+        progressCharacter.max = avatarData.health;
+        progressEnemy.value = avatarDataEnemy.health;
+        progressEnemy.max = avatarDataEnemy.health;
 
-            let hitEnemy;
-            let damageCharacter = 0;
-            healthCharacternew = healthCharacter;
+        document.getElementById("button-attack").addEventListener("click", function () {
+          const protectCharacter = document.querySelectorAll('input[name="option"]:checked');
 
-            // textCharacter = characterName + " сделал " + characterNameEnemy;
-            // textEnemy = characterNameEnemy + " ответил " + characterName;
+          let damageCharacter = 0;
+          let damageEnemy = 0;
+          let textCharacter = "";
+          let textEnemy = "";
 
-            for (let i = 0; i < count_attack; i++) {
-              hitEnemy = attack[Math.floor(Math.random() * attack.length)];
-              const isProtected = [...protectCharacter].some(
-                (item) => item.value === hitEnemy.id
-              );
-              if (!isProtected) {
-                damageCharacter += hitEnemy.points;
-                textCharacter += " " + attack.label;
-              }
+          const count_attack = avatarDataEnemy.count_attack || 2;
+
+          for (let i = 0; i < count_attack; i++) {
+            const hitEnemy = attack[Math.floor(Math.random() * attack.length)];
+            const isProtected = [...protectCharacter].some((item) => item.value === hitEnemy.id);
+            if (!isProtected) {
+              damageCharacter += hitEnemy.points || 10;
+              textCharacter += " " + (hitEnemy.label || "атака");
             }
+          }
 
-            healthCharacternew = healthCharacternew - damageCharacter;
-            // healthEnemynew = healthEnemynew - damageCharacter;
+          healthCharacter = Math.max(0, healthCharacter - damageCharacter);
+          healthEnemy = Math.max(0, healthEnemy - damageEnemy);
 
-            localStorage.setItem("Damage/Character", damageCharacter);
-            localStorage.setItem("Health/Character", healthCharacternew);
+          localStorage.setItem("Damage/Character", damageCharacter);
+          localStorage.setItem("Health/Character", healthCharacter);
+          localStorage.setItem("Damage/Enemy", damageEnemy);
+          localStorage.setItem("Health/Enemy", healthEnemy);
 
-            // if (textCharacter) {
-            //   document.getElementById("textCharacter").value = textCharacter;
-            // }
+          progressCharacter.value = healthCharacter;
+          progressTitleCharacter.textContent = `${healthCharacter} / ${progressCharacter.max}`;
 
-            <!--Прогрессбар для персонажа-->
+          progressEnemy.value = healthEnemy;
+          progressTitleEnemy.textContent = `${healthEnemy} / ${progressEnemy.max}`;
 
-            let progressCharacter =
-              document.getElementById("progress-character");
-            progressCharacter.value = damageCharacter;
-            progressCharacter.max = healthCharacternew;
-            // let currentValue = 0;
-
-            function character_progress() {}
-          });
+          if (healthCharacter <= 0 || healthEnemy <= 0) {
+            console.log("Бой завершен!");
+          }
+        });
       });
     </script>
   </body>

@@ -12,17 +12,9 @@
       <div class="header-title" id="header-title">Ваш персонаж</div>
       <div class="navigation">
         <nav>
-          <a href="fight.html"
-            ><img src="./assets/png/fight.png" alt="В бой!"
-          /></a>
-          <a href="hero.html">
-            <img src="./assets/png/hero.png" alt=" Ваш персонаж"
-          /></a>
-          <a href="character.html">
-            <img
-              src="./assets/png/settings.png"
-              alt=" Изменить настройки персонажа"
-          /></a>
+          <a href="fight.html"><img src="./assets/png/fight.png" alt="В бой!" /></a>
+          <a href="hero.html"> <img src="./assets/png/hero.png" alt=" Ваш персонаж" /></a>
+          <a href="character.html"> <img src="./assets/png/settings.png" alt=" Изменить настройки персонажа" /></a>
         </nav>
       </div>
     </header>
@@ -30,62 +22,30 @@
       <div class="character-card">
         <div class="character-card-title">Ваш персонаж:</div>
         <div class="character-name">
-          <input
-            class="character-name-input"
-            type="text"
-            id="character-name"
-            readonly
-          />
+          <input class="character-name-input" type="text" id="character-name" readonly />
         </div>
         <div class="character-edit">
           <img class="character-image" src="" alt="character-image" />
-          <img
-            class="character-edit-image"
-            src="./assets/png/edit.png"
-            alt="edit-image"
-            title="Выбрать персонаж"
-          />
+          <img class="character-edit-image" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж" />
         </div>
         <div class="button">
-          <button type="button" class="button-submit" id="button-edit">
-            Изменить
-          </button>
-          <button type="button" class="button-submit" id="button-submit">
-            Сохранить
-          </button>
+          <button type="button" class="button-submit" id="button-edit">Изменить</button>
+          <button type="button" class="button-submit" id="button-submit">Сохранить</button>
         </div>
       </div>
 
       <div class="character-card">
         <div class="character-card-title">Соперник:</div>
         <div class="character-name-enemy">
-          <input
-            class="character-name-input"
-            type="text"
-            id="character-name-enemy"
-            readonly
-          />
+          <input class="character-name-input" type="text" id="character-name-enemy" readonly />
         </div>
         <div class="character-edit">
-          <img
-            class="character-image-enemy"
-            src=""
-            alt="character-image-enemy"
-          />
-          <img
-            class="character-edit-image-enemy"
-            src="./assets/png/edit.png"
-            alt="edit-image"
-            title="Выбрать персонаж"
-          />
+          <img class="character-image-enemy" src="" alt="character-image-enemy" />
+          <img class="character-edit-image-enemy" src="./assets/png/edit.png" alt="edit-image" title="Выбрать персонаж" />
         </div>
         <div class="button">
-          <button type="button" class="button-submit" id="button-edit-enemy">
-            Изменить
-          </button>
-          <button type="button" class="button-submit" id="button-submit-enemy">
-            Сохранить
-          </button>
+          <button type="button" class="button-submit" id="button-edit-enemy">Изменить</button>
+          <button type="button" class="button-submit" id="button-submit-enemy">Сохранить</button>
         </div>
       </div>
     </main>
@@ -95,22 +55,14 @@
         const editButton = document.getElementById("button-edit");
         const avatar = window.appData.avatar;
         const enemy_avatar = window.appData.enemy_avatar;
-        const submitButtonEnemy = document.getElementById(
-          "button-submit-enemy"
-        );
+        const submitButtonEnemy = document.getElementById("button-submit-enemy");
         const editButtonEnemy = document.getElementById("button-edit-enemy");
         const name = localStorage.getItem("Player/name");
         const nameEnemy = localStorage.getItem("Enemy/name");
         const characterName = document.getElementById("character-name");
-        const characterNameEnemy = document.getElementById(
-          "character-name-enemy"
-        );
-        const characterEditImage = document.querySelector(
-          ".character-edit-image"
-        );
-        const characterEditImageEnemy = document.querySelector(
-          ".character-edit-image-enemy"
-        );
+        const characterNameEnemy = document.getElementById("character-name-enemy");
+        const characterEditImage = document.querySelector(".character-edit-image");
+        const characterEditImageEnemy = document.querySelector(".character-edit-image-enemy");
 
         if (name) {
           document.getElementById("character-name").value = name;
@@ -147,26 +99,18 @@
         document.querySelector(".character-image").src = avatarData.src;
         document.querySelector(".character-image").alt = avatarData.alt;
 
-        document.querySelector(".character-image-enemy").src =
-          avatarDataEnemy.src;
-        document.querySelector(".character-image-enemy").alt =
-          avatarDataEnemy.alt;
+        document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
+        document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
 
         submitButton.addEventListener("click", () => {
-          localStorage.setItem(
-            "Player/name",
-            document.getElementById("character-name").value
-          );
+          localStorage.setItem("Player/name", document.getElementById("character-name").value);
           characterEditImage.style.visibility = "hidden";
           characterName.classList.remove("character-name-editable");
           submitButton.blur();
         });
 
         submitButtonEnemy.addEventListener("click", () => {
-          localStorage.setItem(
-            "Enemy/name",
-            document.getElementById("character-name-enemy").value
-          );
+          localStorage.setItem("Enemy/name", document.getElementById("character-name-enemy").value);
           characterEditImageEnemy.style.visibility = "hidden";
           submitButton.blur();
         });
@@ -212,13 +156,10 @@
 
           avatarDataEnemy = enemy_avatar[newId];
           localStorage.setItem("Enemy/avatar", JSON.stringify(avatarDataEnemy));
-          document.getElementById("character-name-enemy").value =
-            avatarDataEnemy.alt;
+          document.getElementById("character-name-enemy").value = avatarDataEnemy.alt;
           localStorage.setItem("Enemy/name", avatarDataEnemy.alt);
-          document.querySelector(".character-image-enemy").src =
-            avatarDataEnemy.src;
-          document.querySelector(".character-image-enemy").alt =
-            avatarDataEnemy.alt;
+          document.querySelector(".character-image-enemy").src = avatarDataEnemy.src;
+          document.querySelector(".character-image-enemy").alt = avatarDataEnemy.alt;
           characterEditImageEnemy.blur();
         });
       });
